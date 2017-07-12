@@ -60,7 +60,6 @@
                     android:hint="@string/ID_form_text"
                     android:inputType="phone"
                     android:maxLines="1"
-                    android:text="119704"
                     android:textColor="@color/textColor" />
 
             </android.support.design.widget.TextInputLayout>
@@ -78,17 +77,9 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:text="hu1500fi"
                     android:textColor="@color/textColor" />
 
             </android.support.design.widget.TextInputLayout>
-
-            <CheckBox
-                android:id="@+id/autolog_box"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/autolog_box_text"
-                android:textColor="@color/textColor" />
 
             <Button
                 android:id="@+id/sign_in_button"

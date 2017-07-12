@@ -12,10 +12,73 @@
     tools:context="com.theglorious.re4der.cantreye.CharacterListActivity">
 
 
-    <ScrollView
-        android:scrollbars="none"
+    <TextView
+        android:id="@+id/id_label"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="playerID"
+        android:textAlignment="center"
+        android:textColor="@color/textColor"
+        android:textSize="24sp" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <ToggleButton
+                android:id="@+id/toggleButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6px"
+                android:background="@color/colorAccent"
+                android:checked="false"
+                android:text="ToggleButton"
+                android:textColor="@color/textColor"
+                android:textOff="@string/notifications_off"
+                android:textOn="@string/notifications_on" />
+
+            <Button
+                android:id="@+id/open_cantr_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6px"
+                android:background="@color/colorAccent"
+                android:elevation="0dp"
+                android:text="@string/go_to_game_text"
+                android:textAlignment="center"
+                android:textColor="@color/textColor" />
+
+            <Button
+                android:id="@+id/placeholder_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6px"
+                android:background="@color/colorAccent"
+                android:elevation="0dp"
+                android:text="If you can see this button then something is wrong. Like really wrong.."
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/logoff_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6px"
+                android:background="@color/colorAccent"
+                android:elevation="0dp"
+                android:text="@string/sign_out_text"
+                android:textAlignment="center"
+                android:textColor="@color/textColor" />
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,11 +1,12 @@
 package com.theglorious.re4der.cantreye;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -37,6 +38,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //check if logged in
+        SharedPreferences SPStorage = getSharedPreferences(getResources().getString(R.string.storage_adress), 0);
+        String url = SPStorage.getString("credential", "ERROR");
+        if(!url.equals("ERROR")) {
+            autolog(url);
+        }
     }
 
     private boolean waitForResponse(){
@@ -172,12 +180,58 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
 
+        //remember credentials
+        saveCredentials(url);
 
         //move forward
         Intent intent = new Intent(this, CharacterListActivity.class);
         intent.putExtra("com.theglorious.re4der.MESSAGE", url);
         startActivity(intent);
         return true;
+    }
+
+    private boolean autolog(String url){
+        //authenticate
+        serverResponse = "";
+        Authentication auth = new Authentication();
+        auth.execute(url);
+        if(!waitForResponse()){
+            displayError(getResources().getString(R.string.error_timed_out));
+            return false;
+        }
+
+        //handle errors 2
+        if(serverResponse.equals("ERROR Hacking attempt")){
+            displayError(getResources().getString(R.string.error_incorrect_credentials));
+            return false;
+        }
+        else if(serverResponse.equals("ERROR Wrong version")){
+            displayError(getResources().getString(R.string.error_old_API));
+            return false;
+        }
+        else if(serverResponse.equals("GAME LOCKED")){
+            displayError(getResources().getString(R.string.error_game_locked));
+            return false;
+        }
+        else if(serverResponse.equals("BAD LOGIN")){
+            displayError(getResources().getString(R.string.error_incorrect_credentials));
+            return false;
+        }
+        else if(serverResponse.startsWith("ERROR")){
+            displayError(getResources().getString(R.string.error_unknown));
+            return false;
+        }
+        Intent intent = new Intent(this, CharacterListActivity.class);
+        intent.putExtra("com.theglorious.re4der.MESSAGE", url);
+        startActivity(intent);
+        return true;
+    }
+
+    private void saveCredentials(String value){
+        SharedPreferences SPStorage = getSharedPreferences(getResources().getString(R.string.storage_adress), 0);
+        SharedPreferences.Editor editor = SPStorage.edit();
+        editor.putString("credential", value);
+        editor.commit();
     }
 
 

@@ -3,9 +3,11 @@ package com.theglorious.re4der.cantreye;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 public class CharacterListActivity extends AppCompatActivity {
 
@@ -40,6 +42,10 @@ public class CharacterListActivity extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         Intent intent = new Intent(this, LoginActivity.class);
+        SharedPreferences SPStorage = getSharedPreferences(getResources().getString(R.string.storage_adress), 0);
+        SharedPreferences.Editor editor = SPStorage.edit();
+        editor.remove("credential");
+        editor.commit();
         startActivity(intent);
     }
 }

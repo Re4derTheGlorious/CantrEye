@@ -4,7 +4,6 @@
     <string name="version_info">1.0</string>
 
     <!-- Strings related to login -->
-    <string name="autolog_box_text">Remember</string>
     <string name="ID_form_text">ID</string>
     <string name="pass_form_text">Password</string>
     <string name="sign_in_text">Sign in</string>
@@ -19,7 +18,11 @@
     <string name="error_unknown">Unknown error</string>
 
     <!-- Other Strings -->
+    <string name="go_to_game_text">Go to game</string>
     <string name="inactive_chars_notification">new events</string>
     <string name="no_inactive_notification">No new events</string>
     <string name="and">and</string>
+    <string name="storage_adress">StorageAdress</string>
+    <string name="notifications_on">Notifications: On</string>
+    <string name="notifications_off">Notifications: Off</string>
 </resources>
