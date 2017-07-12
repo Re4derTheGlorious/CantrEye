@@ -97,7 +97,7 @@ public class BackgroundTask extends IntentService {
         //create notification
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.eye_icon)
+                        .setSmallIcon(R.drawable.cantr_eye_notification)
                         .setContentTitle(title)
                         .setContentIntent(pendingIntent)
                         .setContentText(text);

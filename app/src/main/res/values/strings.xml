@@ -1,15 +1,13 @@
 <resources>
     <string name="app_name">CantrEye</string>
-    <string name="header_text">Cantr Eye</string>
-    <string name="version_info">0.95</string>
+    <string name="header_text">CantrEye</string>
+    <string name="version_info" translatable="false">1</string>
 
     <!-- Strings related to login -->
-    <string name="ID_form_text">ID</string>
+    <string name="ID_form_text" translatable="false">ID</string>
     <string name="pass_form_text">Password</string>
     <string name="sign_in_text">Sign in</string>
     <string name="sign_out_text">Sign out</string>
-    <string name="error_incorrect_password">Incorrect password</string>
-    <string name="error_incorrect_login">Incorrect ID</string>
     <string name="error_incorrect_credentials">Incorrect credentials</string>
     <string name="error_old_API">The communication protool used in this app is not up to date therefore it will not log in</string>
     <string name="error_field_required">ID and password fields are required</string>
@@ -19,10 +17,10 @@
 
     <!-- Other Strings -->
     <string name="go_to_game_text">Go to game</string>
-    <string name="inactive_chars_notification">new events</string>
+    <string name="inactive_chars_notification">New events</string>
     <string name="no_inactive_notification">No new events</string>
     <string name="and">and</string>
-    <string name="storage_adress">StorageAdress</string>
+    <string name="storage_adress" translatable="false">StorageAdress</string>
     <string name="notifications_on">Enable notifications</string>
     <string name="notifications_off">Disable notifications</string>
     <string name="notifications_on_toast">Notifications enabled</string>

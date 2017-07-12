@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cantryjskie Oko</string>
+    <string name="and">i</string>
+    <string name="error_field_required">Pole hasła i ID jest wymagane</string>
+    <string name="error_game_locked">Cantr chwilowo niedostępny</string>
+    <string name="error_incorrect_credentials">Niepoprawne ID lub hasło</string>
+    <string name="error_old_API">Użyty protokół komunikacji jest nieaktualny więc zalogowanie się jest niemożliwe</string>
+    <string name="error_timed_out">Przekroczono limit czasu połączenia</string>
+    <string name="error_unknown">Błąd nieznany</string>
+    <string name="go_to_game_text">Przejdź do gry</string>
+    <string name="header_text">Cantryjskie Oko</string>
+    <string name="inactive_chars_notification">Nowe zdarzenia</string>
+    <string name="no_inactive_notification">Brak nowych zdarzeń</string>
+    <string name="notifications_off">Wyłącz powiadomienia</string>
+    <string name="notifications_off_toast">Wyłączono powiadomienia</string>
+    <string name="notifications_on">Włącz powiadomienia</string>
+    <string name="notifications_on_toast">Włączono powiadomienia</string>
+    <string name="pass_form_text">Hasło</string>
+    <string name="sign_in_text">Zaloguj się</string>
+    <string name="sign_out_text">Wyloguj się</string>
+</resources>
