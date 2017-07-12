@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CantrEye</string>
     <string name="header_text">Cantr Eye</string>
-    <string name="version_info">1.0</string>
+    <string name="version_info">0.95</string>
 
     <!-- Strings related to login -->
     <string name="ID_form_text">ID</string>
@@ -23,6 +23,8 @@
     <string name="no_inactive_notification">No new events</string>
     <string name="and">and</string>
     <string name="storage_adress">StorageAdress</string>
-    <string name="notifications_on">Notifications: On</string>
-    <string name="notifications_off">Notifications: Off</string>
+    <string name="notifications_on">Enable notifications</string>
+    <string name="notifications_off">Disable notifications</string>
+    <string name="notifications_on_toast">Notifications enabled</string>
+    <string name="notifications_off_toast">Notifications disabled</string>
 </resources>

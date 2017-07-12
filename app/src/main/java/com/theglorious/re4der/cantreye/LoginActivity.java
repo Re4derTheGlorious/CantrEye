@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -42,8 +43,9 @@ public class LoginActivity extends AppCompatActivity {
         //check if logged in
         SharedPreferences SPStorage = getSharedPreferences(getResources().getString(R.string.storage_adress), 0);
         String url = SPStorage.getString("credential", "ERROR");
+        String id = SPStorage.getString("ID", "ERROR");
         if(!url.equals("ERROR")) {
-            autolog(url);
+            autolog(url, id);
         }
     }
 
@@ -68,8 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void displayError(String errorText){
-        int duration = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(this, errorText, duration);
+        Toast toast = Toast.makeText(this, errorText, Toast.LENGTH_LONG);
         toast.show();
         setLoader(false);
     }
@@ -181,16 +182,18 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         //remember credentials
-        saveCredentials(url);
+        saveCredentials(url, idForm.getText().toString());
 
         //move forward
         Intent intent = new Intent(this, CharacterListActivity.class);
         intent.putExtra("com.theglorious.re4der.MESSAGE", url);
+        intent.putExtra("com.theglorious.re4der.MESSAGE2", idForm.getText().toString());
         startActivity(intent);
+        this.finish();
         return true;
     }
 
-    private boolean autolog(String url){
+    private boolean autolog(String url, String id){
         //authenticate
         serverResponse = "";
         Authentication auth = new Authentication();
@@ -223,14 +226,17 @@ public class LoginActivity extends AppCompatActivity {
         }
         Intent intent = new Intent(this, CharacterListActivity.class);
         intent.putExtra("com.theglorious.re4der.MESSAGE", url);
+        intent.putExtra("com.theglorious.re4der.MESSAGE2", id);
         startActivity(intent);
+        this.finish();
         return true;
     }
 
-    private void saveCredentials(String value){
+    private void saveCredentials(String value, String ID){
         SharedPreferences SPStorage = getSharedPreferences(getResources().getString(R.string.storage_adress), 0);
         SharedPreferences.Editor editor = SPStorage.edit();
         editor.putString("credential", value);
+        editor.putString("ID", ID);
         editor.commit();
     }
 

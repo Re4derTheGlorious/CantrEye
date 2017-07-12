@@ -55,6 +55,7 @@ public class BackgroundTask extends IntentService {
         } catch (IOException argh) {
             argh.printStackTrace();
         }
+        inactiveCount = 0;
         for(int i = 0; i<15; i++){
             if(characters[i]!=null){
                 inactiveCount++;

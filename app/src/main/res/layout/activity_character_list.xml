@@ -34,17 +34,37 @@
             android:gravity="bottom"
             android:orientation="vertical">
 
-            <ToggleButton
-                android:id="@+id/toggleButton"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="6px"
-                android:background="@color/colorAccent"
-                android:checked="false"
-                android:text="ToggleButton"
-                android:textColor="@color/textColor"
-                android:textOff="@string/notifications_off"
-                android:textOn="@string/notifications_on" />
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/notifications_on_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6px"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:elevation="0dp"
+                    android:onClick="startNotificationsAction"
+                    android:text="@string/notifications_on"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor" />
+
+                <Button
+                    android:id="@+id/notifications_off_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="6px"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:elevation="0dp"
+                    android:onClick="stopNotificationsAction"
+                    android:text="@string/notifications_off"
+                    android:textAlignment="center"
+                    android:textColor="@color/textColor" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/open_cantr_button"
@@ -53,6 +73,7 @@
                 android:layout_margin="6px"
                 android:background="@color/colorAccent"
                 android:elevation="0dp"
+                android:onClick="goToGame"
                 android:text="@string/go_to_game_text"
                 android:textAlignment="center"
                 android:textColor="@color/textColor" />
@@ -76,6 +97,7 @@
                 android:layout_margin="6px"
                 android:background="@color/colorAccent"
                 android:elevation="0dp"
+                android:onClick="logoff"
                 android:text="@string/sign_out_text"
                 android:textAlignment="center"
                 android:textColor="@color/textColor" />
