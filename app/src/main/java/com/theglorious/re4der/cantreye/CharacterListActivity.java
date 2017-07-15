@@ -87,7 +87,7 @@ public class CharacterListActivity extends AppCompatActivity {
             title = getResources().getString(R.string.no_inactive_notification);
         }
         else {
-            title = inactiveCount+" "+getResources().getString(R.string.inactive_chars_notification);
+            title = getResources().getString(R.string.inactive_chars_notification)+" "+inactiveCount;
             for (int i = 0; i < 15; i++) {
                 if (i==inactiveCount-1 && inactiveCount>1) {
                     text += " " + getResources().getString(R.string.and) + " ";

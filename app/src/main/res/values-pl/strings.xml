@@ -10,7 +10,7 @@
     <string name="error_unknown">Błąd nieznany</string>
     <string name="go_to_game_text">Przejdź do gry</string>
     <string name="header_text">Cantryjskie Oko</string>
-    <string name="inactive_chars_notification">Nowe zdarzenia</string>
+    <string name="inactive_chars_notification">Nowe zdarzenia:</string>
     <string name="no_inactive_notification">Brak nowych zdarzeń</string>
     <string name="notifications_off">Wyłącz powiadomienia</string>
     <string name="notifications_off_toast">Wyłączono powiadomienia</string>
