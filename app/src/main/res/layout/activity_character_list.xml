@@ -67,6 +67,18 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/refresh_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6px"
+                android:background="@color/colorAccent"
+                android:elevation="0dp"
+                android:onClick="refreshNow"
+                android:text="@string/refresh_now_button"
+                android:textAlignment="center"
+                android:textColor="@color/textColor" />
+
+            <Button
                 android:id="@+id/open_cantr_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

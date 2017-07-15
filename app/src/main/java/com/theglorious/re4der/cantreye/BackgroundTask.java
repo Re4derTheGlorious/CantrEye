@@ -32,6 +32,7 @@ public class BackgroundTask extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         request = intent.getStringExtra("com.theglorious.re4der.MESSAGE");
+        System.out.println(request);
 
         for(int i = 0; i<15; i++){
             characters[i] = null;
@@ -64,7 +65,7 @@ public class BackgroundTask extends IntentService {
         createNotification();
     }
 
-    private void createNotification(){
+    public void createNotification(){
         //prepare resources
         int notificationID = 1;
         String title = "";
@@ -75,15 +76,13 @@ public class BackgroundTask extends IntentService {
         else {
             title = inactiveCount+" "+getResources().getString(R.string.inactive_chars_notification);
             for (int i = 0; i < 15; i++) {
-                if (i < 14) {
-                    if (characters[i + 1] == null && characters[i] != null) {
-                        text += " " + getResources().getString(R.string.and) + " ";
-                    } else if (characters[i] != null && i != 0) {
-                        text += ", ";
-                    }
+                if (i==inactiveCount-1 && inactiveCount>1) {
+                    text += " " + getResources().getString(R.string.and) + " ";
                 }
-
-                if (characters[i] != null) {
+                else if (characters[i] != null && i != 0) {
+                    text += ", ";
+                }
+                if(characters[i]!=null) {
                     text += characters[i];
                 }
             }

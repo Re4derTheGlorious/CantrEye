@@ -19,4 +19,5 @@
     <string name="pass_form_text">Hasło</string>
     <string name="sign_in_text">Zaloguj się</string>
     <string name="sign_out_text">Wyloguj się</string>
+    <string name="refresh_now_button">Odśwież teraz</string>
 </resources>

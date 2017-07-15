@@ -5,9 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -61,12 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             timePassed+=stepSize;
         }
-        if(timePassed>=breakTreshold){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return timePassed < breakTreshold;
     }
 
     private void displayError(String errorText){
