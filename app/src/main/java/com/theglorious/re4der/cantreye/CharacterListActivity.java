@@ -134,6 +134,11 @@ public class CharacterListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void aboutButton(View view){
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
     public void logoff(View view){
         Intent intent = new Intent(this, LoginActivity.class);
         SharedPreferences SPStorage = getSharedPreferences(getResources().getString(R.string.storage_adress), 0);

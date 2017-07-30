@@ -20,4 +20,10 @@
     <string name="sign_in_text">Zaloguj się</string>
     <string name="sign_out_text">Wyloguj się</string>
     <string name="refresh_now_button">Odśwież teraz</string>
+    <string name="about_text">O Cantryjskim Oku</string>
+    <string name="back_text">Wróć</string>
+    <string name="donate_text">Dotacja!</string>
+    <string name="credits_text">Autorem aplikacji jest re4der. Możecie mnie znaleźć na Cantryjskim forum, lub Cantryjskim kanale Discord.\n\nCantryjskie Oko trafiło do Sklepu Play dzięki wsparciu następujących osób:\n-Sasza\n-notized\n-Arval\n-Vanya\n\nDzięki za wsparcie!</string>
+    <string name="polish_portal_button">Polski portal o Cantrze</string>
+    <string name="wiki_text">Cantryjskie Wiki</string>
 </resources>

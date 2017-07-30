@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.theglorious.re4der.cantreye.AboutActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16px"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/placeholder_button_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6px"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:elevation="0dp"
+                android:text="If you can see this button then something is wrong. Like really wrong.."
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/credits_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/credits_text"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="40px" />
+
+            <Button
+                android:id="@+id/placeholder_button_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6px"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:elevation="0dp"
+                android:text="If you can see this button then something is wrong. Like really wrong.."
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/donate_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6px"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:onClick="donate"
+                android:text="@string/donate_text"
+                android:textAlignment="center"
+                android:textColor="@color/textColor" />
+
+            <Button
+                android:id="@+id/polish_portal_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6px"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:onClick="goToPolishPortal"
+                android:text="@string/polish_portal_button"
+                android:textAlignment="center"
+                android:textColor="@color/textColor" />
+
+            <Button
+                android:id="@+id/ticks_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6px"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:onClick="goToTicks"
+                android:text="@string/ticks_text"
+                android:textAlignment="center"
+                android:textColor="@color/textColor" />
+
+            <Button
+                android:id="@+id/wiki_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6px"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:onClick="goToWiki"
+                android:text="@string/wiki_text"
+                android:textAlignment="center"
+                android:textColor="@color/textColor" />
+
+            <Button
+                android:id="@+id/placeholder_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6px"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:elevation="0dp"
+                android:text="If you can see this button then something is wrong. Like really wrong.."
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

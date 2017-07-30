@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.theglorious.re4der.cantreye">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,8 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CharacterListActivity"></activity>
-        <service android:name=".BackgroundTask"></service>
+        <activity android:name=".CharacterListActivity" />
+
+        <service android:name=".BackgroundTask" />
+
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

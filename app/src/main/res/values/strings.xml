@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CantrEye</string>
     <string name="header_text">CantrEye</string>
-    <string name="version_info" translatable="false">1.0</string>
+    <string name="version_info" translatable="false">1.0.1.</string>
 
     <!-- Strings related to login -->
     <string name="ID_form_text" translatable="false">ID</string>
@@ -26,4 +26,11 @@
     <string name="notifications_off">Disable notifications</string>
     <string name="notifications_on_toast">Notifications enabled</string>
     <string name="notifications_off_toast">Notifications disabled</string>
+    <string name="about_text">About</string>
+    <string name="back_text">Return</string>
+    <string name="donate_text">Donate!</string>
+    <string name="credits_text">The app is created and developed by re4der. Feel free to PM me on Cantr forums or Cantr discord!\n\nCantrEye was put in Play Store thanks to donations from these people:\n-Sasza\n-notized\n-Arval\n-Vanya\n\nThanks for your support and enjoy using CantrEye!</string>
+    <string name="polish_portal_button">Polish Cantr portal</string>
+    <string name="ticks_text" translatable="false">Cantr Ticks</string>
+    <string name="wiki_text">Cantr Wiki</string>
 </resources>
