@@ -1,13 +1,8 @@
 package com.theglorious.re4der.cantreye;
 
 import android.app.IntentService;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +27,6 @@ public class BackgroundTask extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         request = intent.getStringExtra("com.theglorious.re4der.MESSAGE");
-        System.out.println(request);
 
         for(int i = 0; i<15; i++){
             characters[i] = null;
@@ -62,49 +56,7 @@ public class BackgroundTask extends IntentService {
                 inactiveCount++;
             }
         }
-        createNotification();
-    }
-
-    public void createNotification(){
-        //prepare resources
-        int notificationID = 1;
-        String title = "";
-        String text = "";
-        if(characters[0]==null){
-            title = getResources().getString(R.string.no_inactive_notification);
-        }
-        else {
-            title = getResources().getString(R.string.inactive_chars_notification)+" "+inactiveCount;
-            for (int i = 0; i < 15; i++) {
-                if (i==inactiveCount-1 && inactiveCount>1) {
-                    text += " " + getResources().getString(R.string.and) + " ";
-                }
-                else if (characters[i] != null && i != 0) {
-                    text += ", ";
-                }
-                if(characters[i]!=null) {
-                    text += characters[i];
-                }
-            }
-        }
-
-        //create intent
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://www.cantr.net//"));
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-        //create notification
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.cantr_eye_notification)
-                        .setContentTitle(title)
-                        .setContentIntent(pendingIntent)
-                        .setContentText(text);
-
-
-        //notify
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        mNotificationManager.notify(notificationID, builder.build());
+        NotificationCreator notCreator = new NotificationCreator();
+        notCreator.createNotification(characters, inactiveCount, this);
     }
 }

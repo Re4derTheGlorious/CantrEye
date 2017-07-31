@@ -1,7 +1,6 @@
 package com.theglorious.re4der.cantreye;
 
 import android.app.AlarmManager;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +9,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -33,6 +31,8 @@ public class CharacterListActivity extends AppCompatActivity {
     private String ID;
     private AlarmManager alarm;
 
+    public Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +48,8 @@ public class CharacterListActivity extends AppCompatActivity {
         //set stuff
         TextView view = (TextView) findViewById(R.id.id_label);
         view.setText(ID);
+
+        context = this;
     }
 
     private void startBackgroundService(){
@@ -78,49 +80,6 @@ public class CharacterListActivity extends AppCompatActivity {
         new refreshNowClass().execute(null, null, null);
     }
 
-    private void createNotification(){
-        //prepare resources
-        int notificationID = 1;
-        String title = "";
-        String text = "";
-        if(characters[0]==null){
-            title = getResources().getString(R.string.no_inactive_notification);
-        }
-        else {
-            title = getResources().getString(R.string.inactive_chars_notification)+" "+inactiveCount;
-            for (int i = 0; i < 15; i++) {
-                if (i==inactiveCount-1 && inactiveCount>1) {
-                    text += " " + getResources().getString(R.string.and) + " ";
-                }
-                else if (characters[i] != null && i != 0) {
-                    text += ", ";
-                }
-                if(characters[i]!=null) {
-                    text += characters[i];
-                }
-            }
-        }
-
-        //create intent
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://www.cantr.net//"));
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-        //create notification
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.cantr_eye_notification)
-                        .setContentTitle(title)
-                        .setContentIntent(pendingIntent)
-                        .setContentText(text);
-
-
-        //notify
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        mNotificationManager.notify(notificationID, builder.build());
-    }
-
     private void stopBackgroundService(){
         Intent intent = new Intent(this, BackgroundTask.class);
         PendingIntent pendingIntent = PendingIntent.getService(this, alarmID, intent, 0);
@@ -140,6 +99,7 @@ public class CharacterListActivity extends AppCompatActivity {
     }
 
     public void logoff(View view){
+        stopBackgroundService();
         Intent intent = new Intent(this, LoginActivity.class);
         SharedPreferences SPStorage = getSharedPreferences(getResources().getString(R.string.storage_adress), 0);
         SharedPreferences.Editor editor = SPStorage.edit();
@@ -184,7 +144,8 @@ public class CharacterListActivity extends AppCompatActivity {
                     inactiveCount++;
                 }
             }
-            createNotification();
+            NotificationCreator notCreator = new NotificationCreator();
+            notCreator.createNotification(characters, inactiveCount, context);
             return null;
         }
     }

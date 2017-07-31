@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CantrEye</string>
     <string name="header_text">CantrEye</string>
-    <string name="version_info" translatable="false">1.0.1.</string>
+    <string name="version_info" translatable="false">1.0.2.</string>
 
     <!-- Strings related to login -->
     <string name="ID_form_text" translatable="false">ID</string>
