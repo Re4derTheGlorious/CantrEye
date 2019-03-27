@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CantrEye</string>
     <string name="header_text">CantrEye</string>
-    <string name="version_info" translatable="false">1.0.2.</string>
+    <string name="version_info" translatable="false">1.0.3.</string>
 
     <!-- Strings related to login -->
     <string name="ID_form_text" translatable="false">ID</string>
@@ -33,4 +33,5 @@
     <string name="polish_portal_button">Polish Cantr portal</string>
     <string name="ticks_text" translatable="false">Cantr Ticks</string>
     <string name="wiki_text">Cantr Wiki</string>
+    <string name="not_channel_name">CantrEye Notification Channel</string>
 </resources>

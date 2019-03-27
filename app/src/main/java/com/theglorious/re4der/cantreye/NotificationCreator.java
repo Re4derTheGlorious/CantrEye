@@ -1,13 +1,18 @@
 package com.theglorious.re4der.cantreye;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
 public class NotificationCreator {
+
+    private final String notChannelId = "1";
 
     public void createNotification(String[] characters, int inactiveCount, Context context){
         //prepare resources
@@ -42,69 +47,33 @@ public class NotificationCreator {
 
         int drawable = R.drawable.notification_eye;
 
-        /*
-        switch(inactiveCount) {
-            case 1:
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Notification.Builder builder =
+                    new Notification.Builder(context, notChannelId)
+                            .setSmallIcon(drawable)
+                            .setContentTitle(title)
+                            .setContentIntent(pendingIntent)
+                            .setContentText(text);
+            NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-                break;
-            case 2:
+            //create channel
+            mNotificationManager.createNotificationChannel(new NotificationChannel(notChannelId, context.getResources().getString(R.string.not_channel_name), NotificationManager.IMPORTANCE_DEFAULT));
 
-                break;
-            case 3:
+            //notify
+            mNotificationManager.notify(notificationID, builder.build());
+        }
+        else{
+            NotificationCompat.Builder builder =
+                    new NotificationCompat.Builder(context)
+                            .setSmallIcon(drawable)
+                            .setContentTitle(title)
+                            .setContentIntent(pendingIntent)
+                            .setContentText(text);
+            NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-                break;
-            case 4:
-
-                break;
-            case 5:
-
-                break;
-            case 6:
-
-                break;
-            case 7:
-
-                break;
-            case 8:
-
-                break;
-            case 9:
-
-                break;
-            case 10:
-
-                break;
-            case 11:
-
-                break;
-            case 12:
-
-                break;
-            case 13:
-
-                break;
-            case 14:
-
-                break;
-            case 15:
-
-                break;
-            default:
-
-                break;
-        }*/
-
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(context)
-                        .setSmallIcon(drawable)
-                        .setContentTitle(title)
-                        .setContentIntent(pendingIntent)
-                        .setContentText(text);
-
-        //notify
-        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-        mNotificationManager.notify(notificationID, builder.build());
+            //notify
+            mNotificationManager.notify(notificationID, builder.build());
+        }
     }
 
 }
